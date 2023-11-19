@@ -1,0 +1,175 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		
+		<style>
+		
+		body {
+            font-family: Montserrat;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+		
+.btn-primary {
+display: inline-block;
+    background-color: #9404b7;
+    border: 1px solid #9404B7;
+	border-color:#9404B7
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    color: #fff;
+    font-size: .875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1rem;
+    text-decoration: none;
+    outline: 0;
+    text-align: center;
+    font-family: montserrat,Open Sans,arial,sans-serif;
+    transition: background-color .25s,border-color .25s;
+}
+
+button:hover {
+  background-color: #008CBA; /* change to your desired color */
+  color: white; /* change to your desired color */
+}
+
+
+.form-group {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+</style>
+
+		
+    <title>Email Generator</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4"> Inbound Email Generator</h1>
+
+    <form action="/generate_email" method="post">
+       
+        <!-- Your Name -->
+		<div class="form-group">
+        <label for="your_name">Your Name:</label>
+        <input type="text" name="your_name" id="your_name" required>
+		</div>
+        <br>
+
+
+        <!-- Leads Name -->
+		<div class="form-group">
+        <label for="leads_name">Leads Name:</label>
+        <input type="text" name="leads_name" id="leads_name" required>
+		</div>
+        <br>
+
+        <!-- Lead Title -->
+		<div class="form-group">
+        <label for="lead_title">Lead Title:</label>
+        <input type="text" name="lead_title" id="lead_title" required>
+		</div>
+        <br>
+
+        <!-- Leads Company -->
+		<div class="form-group">
+        <label for="leads_company">Leads Company:</label>
+        <input type="text" name="leads_company" id="leads_company" required>
+		</div>
+        <br>
+
+        <!-- Company Size -->
+		<div class="form-group">
+        <label for="company_size">Company Size:</label>
+        <input type="text" name="company_size" id="company_size" required>
+		</div>
+        <br>
+
+                <!-- Their company is in the (sector) - Dropdown -->
+				<div class="form-group">
+        <label for="sector">Their company is in the:</label>
+        <select name="sector" id="sector">
+            <option value="Construction industry">Construction Industry</option>
+            <option value="Consulting industry">Consulting Industry</option>
+            <option value="Consumer goods industry">Consumer Goods Industry</option>
+            <option value="Education/learning industry">Education/Learning Industry</option>
+            <option value="Electronics industry">Electronics Industry</option>
+            <option value="Energy/utilities industry">Energy/Utilities Industry</option>
+            <option value="Engineering industry">Engineering Industry</option>
+            <option value="Entertainment/media industry">Entertainment/Media Industry</option>
+            <option value="Environmental industry">Environmental Industry</option>
+            <option value="Finance &amp; professional services industry">Finance & Professional Services Industry</option>
+            <option value="Healthcare industry">Healthcare Industry</option>
+            <option value="Hospitality/recreation industry">Hospitality/Recreation Industry</option>
+            <option value="Manufacturing industry">Manufacturing Industry</option>
+            <option value="Pharma/biotech industry">Pharma/Biotech Industry</option>
+            <option value="Retail industry">Retail Industry</option>
+            <option value="Rpo/agency industry">RPO/Agency Industry</option>
+            <option value="Technology industry">Technology Industry</option>
+            <option value="Telecommunications industry">Telecommunications Industry</option>
+            <option value="Transportation industry">Transportation Industry</option>
+        </select>
+		</div>
+        <br>
+
+
+       <!-- Interested In - Dropdown -->
+	   <div class="form-group">
+        <label for="interested_in">What are they Interested in?</label>
+        <select name="interested_in" id="interested_in">
+            <option value="Recruitment Training">Recruitment Training</option>
+            <option value="Interviewing Training">Interviewing Training</option>
+            <option value="Dei Training">DEI Training</option>
+            <option value="Onboarding Training">Onboarding Training</option>
+            <option value="Leadership Training">Leadership Training</option>
+            <option value="Internal Mobility Training">Internal Mobility Training</option>
+        </select>
+		</div>
+
+        <br>
+		
+
+        <!-- Pain Point - Dropdown -->
+		<div class="form-group">
+        <label for="pain_point">Their Pain Point?</label>
+        <select name="pain_point" id="pain_point">
+            <option value="struggling to source talent">Struggling to source talent</option>
+            <option value="ineffective screening and shortlisting">Ineffective screening and shortlisting</option>
+            <option value="poor candidate experience">Poor candidate experience</option>
+            <option value="a poor employer brand">A poor employer brand</option>
+            <option value="no alignment with hiring managers">No alignment with hiring managers</option>
+            <option value="lack of inclusive hiring practices">Lack of inclusive hiring practices</option>
+            <option value="unsure how to leverage generative AI tools">Unsure how to leverage Generative AI tools</option>
+            <option value="difficult to support recruiters at different career stages">Difficult to support recruiters at different career stages</option>
+            <option value="staying agile in a rapidly changing market">Staying agile in a rapidly changing market</option>
+            <option value="no standard level of interviewing skills across the organization">No standard level of interviewing skills across the organization</option>
+            <option value="inconsistent interviewing practices">Inconsistent interviewing practices</option>
+            <option value="poor hiring decisions">Poor hiring decisions</option>
+            <option value="lack of inclusive hiring practices">Lack of inclusive hiring practices</option>
+            <option value="poor candidate experience">Poor candidate experience</option>
+            <option value="no company-wide DEI-focused culture">No company-wide DEI-focused culture</option>
+            <option value="lack of inclusive sourcing, interviewing, and hiring practices">Lack of inclusive sourcing, interviewing, and hiring practices</option>
+            <option value="poor retention and representation rates at all levels">Poor retention and representation rates at all levels</option>
+        </select>
+		</div>
+        <br>
+
+        <button type="submit" class="btn btn-primary">Generate Email</button>
+    </form>
+	  </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

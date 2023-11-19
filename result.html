@@ -1,0 +1,60 @@
+<!-- templates/result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		
+		<style>
+		
+		body {
+            font-family: Montserrat;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+		
+.btn-primary {
+   display: inline-block;
+    background-color: #9404b7;
+    border: 1px solid #9404B7;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    color: #fff;
+    font-size: .875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1rem;
+    text-decoration: none;
+    outline: 0;
+    text-align: center;
+    font-family: montserrat,Open Sans,arial,sans-serif;
+    transition: background-color .25s,border-color .25s;
+}
+
+.form-group {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+</style>
+		
+    <title>Email Generator - Result</title>
+</head>
+<body>
+<div class="container">
+    <h1>Email Generator - Result</h1>
+    <p>Generated Content:</p>
+    <pre>{{ generated_content }}</pre>
+	
+	    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
