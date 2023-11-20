@@ -1,14 +1,24 @@
-# app.py
+# gen.py
 
 from flask import Flask, render_template, request
 from flask_cors import CORS
 import openai  # Import the OpenAI library
+from google.cloud import secretmanager_v1
+
+# Set the secret name
+project_id = "email-generator-test"  # Replace with your actual project ID
+secret_name = "OpenAPI"  # Replace with your actual secret name
+
+
+# Create the Secret Manager client
+client = secretmanager_v1.SecretManagerServiceClient()
+
+# Access the secret
+response = client.access_secret_version(name=OpenAPI)
+api_key = response.payload.data.decode("UTF-8")
 
 app = Flask(__name__)
 CORS(app)
-
-# Set your OpenAI API key
-openai.api_key = "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"
 
 @app.route('/')
 def home():
