@@ -59,7 +59,7 @@ button:hover {
 <div class="container">
     <h1 class="my-4"> Inbound Email Generator</h1>
 
-    <form action="/generate_email" method="post">
+<form id="emailForm" action="/generate_email" method="post">
        
         <!-- Your Name -->
 		<div class="form-group">
@@ -167,7 +167,7 @@ button:hover {
 		</div>
         <br>
 
-        <button type="submit" class="btn btn-primary">Generate Email</button>
+            <button type="button" id="generateEmailBtn" class="btn btn-primary">Generate Email</button>
     </form>
 	  </div>
 	  <!--Lets Find Juicy Oranges -->
