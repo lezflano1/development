@@ -10,7 +10,7 @@ from google.cloud import secretmanager_v1
 api_key = os.getenv("OpenAPI")
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resource={r"/generate_email": {"origins": "https://lezflano1.github.io"}})
 
 @app.route('/')
 def home():
