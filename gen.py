@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request
 from flask_cors import CORS
+import os
 import openai  # Import the OpenAI library
 from google.cloud import secretmanager_v1
 
