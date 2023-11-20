@@ -8,13 +8,13 @@ app = Flask(__name__)
 CORS(app)
 
 # Set your OpenAI API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/generate_email', methods=['POST'])
+@app.route('/generate_email', methods=['GET', 'POST'])
 def generate_email():
     if request.method == 'POST': 
         your_name = request.form['your_name']
@@ -28,17 +28,22 @@ def generate_email():
         form_prompt = f"Your Name: {your_name}\nLeads Name: {leads_name}\nLead Title: {lead_title}\nLeads Company: {leads_company}\nCompany Size: {company_size}\nSector: {sector}\nInterested In: {interested_in}\nTheir Pain Point: {pain_point}"
         
         baseline_prompt = """
-AI assistant, your task is to compose a reply to a potential lead who has filled in a web form. Make sure to thank them for reaching out at the start of the email. The email you're drafting should be a introduction that clearly encapsulates our identity, the nature of our operations, and how our product/service can be of benefit. 
-The tone of the email should align perfectly with our Brand Voice, which is defined as "professional and informative, demonstrating an expert authoritative tone." The text should be both friendly and inviting, with a clear demonstration of empathy and inclusivity. This tone should serve to assure the recipient of our commitment to quality and reliability.  
-The brand persona that should come across is that of a knowledgeable and reliable guide whose main goal is to enrich user skills and promote fair, inclusive hiring practices. Don't use the word "Pain Point" within the email, instead use words like challenges. You are only allowed to use up to 125 words.
-The language used should be clear, straightforward, and engaging, with a strong emphasis on accessible education and the empowerment of the user.
-The email should highlight that our company (SocialTalent) specializes in creating high-quality actionable learning content that addresses C-suite problems across various domains, including Hiring (Recruiting, Interviewing, and Interview prep for candidates), Onboarding, DEI, Leadership, and Internal Mobility.
-It can also mention that our learning library is beneficial for every career and skill level, from individual contributors to senior leaders.
-Lastly, communicate that our learning platform is easy to buy, deploy, and use - at scale. Keep the writing engaging, informative, and professional, reflecting our brand persona and values. 
-"Your Name" refers to the Sales rep. "Length of Email" refers to how long the email should be. 
-You should always mention our company name "SocialTalent". Please include any relevant information you have on the problems that the selected industry could be experiencing. 
-"Company Size" refers to how many employees work within "Leads Company" be sure to mention this.
-The information following this is both information about the lead, but also information about the sales rep who is filling in a form to generate this email.
+    As a sales development representative, your task is to compose an introductory email response, not exceeding 125 words but try your best to keep them short, to a potential client who has reached out via our website. The email should not be longer than 125 words or it will ruin everything. Begin with expressing gratitude for their interest.  
+
+Replace "Pain Point" with "challenges". Incorporate relevant information about the challenges faced by the potential client's industry and the size of their company. Substitute "Your Name" and "Company Size" with appropriate sales representative information and the potential client's company size. We don't sell courses so don't mention them.
+
+Here is our full elevator pitch, please use it to help form this email. "I work for a company called SocialTalent, a market-leading learning platform that helps organizations to build high-performing, work-smart teams.
+What does that mean? Our learning library is packed with actionable, bite-sized training videos, delivered by leading experts in Recruiting, Interviewing, Leadership, DEI, and Internal Mobility. We want to make every employee work-smart regardless of their career level or learning style.
+We work with industry giants, like Cisco, CVS, Amazon, and HelloFresh, to deliver learning to millions of users. Our content consistently receives high user satisfaction scores, with an industry-beating course completion rate of over 87%
+Organizations come to us when they want to solve critical workplace challenges. Let me explain what I mean.
+Nearly 8 out of 10 organizations are struggling to hire talent right now.  That’s the highest % ever surveyed. We address this challenge by providing training for every stakeholder in the hiring process - the recruiters, the hiring managers, and the candidates -  helping to build a culture of hiring excellence.
+The second need is about retaining and getting the most out of existing talent. Hiring the right talent is just the first step. Employee engagement leads to retention, increased productivity, and innovation. Whether an employee stays and prospers or leaves and sends us back to square one is 80% down to the leader they work under. We upskill leaders on how to hire, onboard, develop, and lead their teams to succeed, with an extra emphasis on how to succeed when managing hybrid or remote teams. 
+While inclusive hiring is essential, great companies know that DEI goes beyond recruitment. We've made DEI a central focus in our learning library, providing organizations with the tools and knowledge to create welcoming and inclusive environments for all employees.
+Lastly, we’re always striving to future-proof our customers for the opportunities and challenges of tomorrow. We’ve recently introduced training for every employee on how to leverage generative AI to be work-smart no matter what their role, whilst being conscious of AI’s potential for bias, hallucinations, and an increased risk of data privacy breaches.
+So whatever the need - hiring and retaining talent, building inclusive workplaces, or leading hybrid teams - our learning content can help you solve it.
+We believe that learning should be accessible to every employee, regardless of their career level, learning style, or workplace. Our inclusive platform is designed to make learning engaging and user-friendly, with bite-sized content inspired by streaming platforms. It's easy to purchase and roll out, supporting teams of any size. With our mobile app, LMS integrations, and support for multiple learning styles, we ensure that all employees can access the same high-quality training.
+So that’s us. A market-leading learning platform. Solving big talent challenges, for some of the world’s biggest brands."
+
 """
         
         full_prompt = baseline_prompt + form_prompt
