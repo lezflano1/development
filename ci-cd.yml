@@ -25,4 +25,4 @@ jobs:
       - name: Run Flask application
         run: |
           export API_KEY=${{ secrets.OpenAPI }}
-          python app.py
+          python gen.py
